@@ -1,0 +1,40 @@
+digraph {
+	A [label=Doctor]
+	B [label="Machine Learning"]
+	C [label="New User"]
+	D [label=Register]
+	E [label=Database]
+	F [label="Existing User"]
+	G [label="Sign In"]
+	H [label=Dashboard]
+	I [label="Add Patient"]
+	J [label="Patient Database"]
+	K [label="Patient Form"]
+	L [label="Patient Details"]
+	M [label="Upload X-ray"]
+	N [label="Analyze Image"]
+	O [label="Trained Model"]
+	P [label="View History"]
+	Q [label="Results Processing"]
+	R [label="Display Results"]
+	S [label="Generate PDF"]
+	T [label="Download PDF Report"]
+	U [label="No Finding Check (100%)"]
+	C -> D
+	D -> E
+	F -> G
+	G -> H
+	H -> I
+	I -> J
+	I -> K
+	J -> L
+	L -> M
+	M -> N
+	N -> O
+	O -> Q
+	J -> P
+	Q -> R
+	R -> S
+	S -> T
+	R -> U
+}

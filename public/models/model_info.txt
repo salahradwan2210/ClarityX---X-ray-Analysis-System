@@ -1,0 +1,31 @@
+ConvNeXt Large Model for Chest X-ray Analysis
+Model File: best_model_epoch_3_auroc_9004.pth
+AUROC: 0.8564
+
+This model is trained on the NIH Chest X-ray dataset to detect the following 14 conditions:
+- Atelectasis
+- Cardiomegaly
+- Effusion
+- Infiltration
+- Mass
+- Nodule
+- Pneumonia
+- Pneumothorax
+- Consolidation
+- Edema
+- Emphysema
+- Fibrosis
+- Pleural Thickening
+- Hernia
+
+The model uses a ConvNeXt Large architecture with additional attention layers, localization head,
+and metadata branch that incorporates patient age, gender, and view position information
+for improved accuracy.
+
+To use this model in a production environment, follow these steps:
+1. Place the model file (best_model_epoch_3_auroc_9004.pth) in this directory
+2. Set up a Python backend API with PyTorch
+3. Implement the model architecture as defined in the provided code
+4. Create an API endpoint that accepts images and returns predictions
+
+For development purposes, the model is mocked in the frontend. 
