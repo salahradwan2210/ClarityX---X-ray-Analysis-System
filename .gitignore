@@ -1,18 +1,59 @@
-# Exclude model weight files
-*.pth
-# Python cache files
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Python
 __pycache__/
-*.pyc
-# Virtual environment
+*.py[cod]
+*$py.class
+.Python
 .venv/
+venv/
 env/
-# OS files
-.DS_Store
-Thumbs.db
-# Logs
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Model weights (download separately — see docs/MODEL_WEIGHTS.md)
+*.pth
+*.pt
+*.onnx
+*.ckpt
+
+# Logs & OS
 *.log
 logs/
-# IDE & editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
 .vscode/
 .idea/
-node_modules
+*.swp
+*.swo
+
+# Training outputs & local data (too large for Git)
+model-training/data/
+model-training/preprocessed*/
+model-training/runs/
+model-training/wandb/
+python-backend/*.png
+python-backend/chest_xray_system
+
+# Large marketing / demo media (not used — site uses icons only)
+*.mp4
+public/images/
+
+# Misc
+push.bat

@@ -5,7 +5,17 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { LucideActivity, LucideSearch, LucideZap, LucideUsers, LucideShield, LucideBarChart } from "lucide-react"
+import {
+  LucideActivity,
+  LucideSearch,
+  LucideZap,
+  LucideUsers,
+  LucideShield,
+  LucideBarChart,
+  LucideFileText,
+  LucideScan,
+  LucideTarget,
+} from "lucide-react"
 
 export default function LandingPage() {
   const [isHovering, setIsHovering] = useState<string | null>(null)
@@ -39,14 +49,20 @@ export default function LandingPage() {
     {
       id: "reporting",
       title: "Detailed Reporting",
-      description: "Generate comprehensive reports with AI-assisted annotations and findings",
-      icon: LucideBarChart,
+      description: "Generate comprehensive PDF reports with AI-assisted annotations and findings",
+      icon: LucideFileText,
     },
+  ]
+
+  const highlights = [
+    { label: "Pathologies detected", value: "14", icon: LucideScan },
+    { label: "Mean AUROC", value: "~0.97", icon: LucideTarget },
+    { label: "Localized conditions", value: "8", icon: LucideSearch },
+    { label: "Report export", value: "PDF", icon: LucideFileText },
   ]
 
   return (
     <div className="flex min-h-screen w-full flex-col">
-      {/* Navigation */}
       <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-2">
@@ -75,11 +91,10 @@ export default function LandingPage() {
         </div>
       </header>
 
-      {/* Hero Section */}
       <section className="relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-background"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-background" />
         <div className="container relative mx-auto px-4 py-20 md:py-32">
-          <div className="grid gap-8 md:grid-cols-2 md:gap-12">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -102,56 +117,54 @@ export default function LandingPage() {
                 </Button>
               </div>
             </motion.div>
+
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex items-center justify-center"
             >
-              <div className="relative h-[400px] w-full max-w-[500px] overflow-hidden rounded-lg border bg-background/50 shadow-xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <img
-                    src="/images/chest-xray-pneumonia.png"
-                    alt="Chest X-ray with AI annotations"
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <div className="rounded-lg bg-background/90 p-3 backdrop-blur-sm">
-                      <div className="mb-2 flex items-center justify-between">
-                        <span className="font-medium">AI Analysis Results</span>
-                        <span className="text-xs text-muted-foreground">97% accuracy</span>
-                      </div>
-                      <div className="space-y-2">
-                        <div className="space-y-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm text-red-600 font-medium">Pneumonia</span>
-                            <span className="text-sm font-medium text-red-600">87%</span>
-                          </div>
-                          <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
-                            <div className="h-full w-[87%] rounded-full bg-red-600"></div>
-                          </div>
-                        </div>
-                        <div className="space-y-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm">Effusion</span>
-                            <span className="text-sm font-medium">42%</span>
-                          </div>
-                          <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
-                            <div className="h-full w-[42%] rounded-full bg-primary"></div>
-                          </div>
-                        </div>
-                      </div>
+              <Card className="w-full max-w-md border-primary/20 shadow-xl">
+                <CardContent className="p-6">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="rounded-full bg-primary/10 p-3 text-primary">
+                      <LucideZap className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Sample analysis preview</p>
+                      <p className="text-xs text-muted-foreground">Upload a real X-ray in the app</p>
                     </div>
                   </div>
-                </div>
-              </div>
+                  <div className="space-y-3 rounded-lg border bg-muted/40 p-4">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="font-medium text-red-600">Pneumonia</span>
+                      <span className="font-medium text-red-600">87%</span>
+                    </div>
+                    <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
+                      <div className="h-full w-[87%] rounded-full bg-red-600" />
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span>Effusion</span>
+                      <span className="font-medium">42%</span>
+                    </div>
+                    <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
+                      <div className="h-full w-[42%] rounded-full bg-primary" />
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span>No Finding</span>
+                      <span className="font-medium">12%</span>
+                    </div>
+                    <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
+                      <div className="h-full w-[12%] rounded-full bg-muted-foreground/40" />
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
       <section id="features" className="bg-muted/30 py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
@@ -207,57 +220,39 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* About Section */}
       <section id="about" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-12 md:grid-cols-2">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col justify-center space-y-4"
-            >
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">About ClarityX</h2>
-              <p className="text-lg text-muted-foreground">
-                ClarityX is a state-of-the-art chest X-ray analysis system designed for radiologists and medical
-                professionals. Our platform leverages the power of the ConvNeXt Large model, trained on the extensive
-                NIH Chest X-ray dataset.
-              </p>
-              <p className="text-lg text-muted-foreground">
-                The system can detect 14 thoracic diseases with high accuracy, providing bounding box localization for 8
-                specific conditions. By considering image features, bounding box size, patient age, gender, and view
-                position, our AI delivers comprehensive and context-aware analysis.
-              </p>
-              <div className="pt-4">
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="/register">Learn More</Link>
-                </Button>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex items-center justify-center"
-            >
-              <div className="relative h-[400px] w-full max-w-[500px] overflow-hidden rounded-lg border shadow-xl">
-                <video
-                  src="/images/gettyimages-1630144669-640_adpp.mp4_1749443794105.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </motion.div>
-          </div>
+        <div className="container mx-auto max-w-4xl px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="space-y-6 text-center"
+          >
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">About ClarityX</h2>
+            <p className="text-lg text-muted-foreground">
+              ClarityX is a chest X-ray analysis system for radiologists and medical professionals. The platform uses a
+              ConvNeXt Large model trained on the NIH Chest X-ray dataset to detect 14 thoracic diseases, with bounding box
+              localization for 8 conditions and context from patient age, gender, and view position.
+            </p>
+            <div className="grid gap-4 pt-4 sm:grid-cols-2 lg:grid-cols-4">
+              {highlights.map((item) => (
+                <Card key={item.label}>
+                  <CardContent className="flex flex-col items-center gap-2 p-6 text-center">
+                    <item.icon className="h-8 w-8 text-primary" />
+                    <p className="text-2xl font-bold">{item.value}</p>
+                    <p className="text-sm text-muted-foreground">{item.label}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            <Button size="lg" variant="outline" asChild className="mt-4">
+              <Link href="/register">Get Started</Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
-      {/* Testimonials */}
       <section className="bg-muted/30 py-20">
         <div className="container mx-auto px-4">
           <motion.h2
@@ -300,7 +295,7 @@ export default function LandingPage() {
               >
                 <Card className="h-full">
                   <CardContent className="flex h-full flex-col p-6">
-                    <div className="mb-4 text-4xl">"</div>
+                    <div className="mb-4 text-4xl text-primary/40">&ldquo;</div>
                     <p className="mb-6 flex-1 text-muted-foreground">{testimonial.quote}</p>
                     <div>
                       <p className="font-semibold">{testimonial.name}</p>
@@ -314,7 +309,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section id="contact" className="py-20">
         <div className="container mx-auto px-4">
           <div className="rounded-xl bg-primary/5 p-8 md:p-12">
@@ -335,8 +329,7 @@ export default function LandingPage() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="mb-8 text-lg text-muted-foreground"
               >
-                Join thousands of medical professionals who are already using ClarityX to improve patient
-                outcomes.
+                Join medical professionals using ClarityX to improve patient outcomes.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -357,7 +350,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="border-t bg-muted/30 py-12">
         <div className="container mx-auto px-4">
           <div className="grid gap-8 md:grid-cols-4">

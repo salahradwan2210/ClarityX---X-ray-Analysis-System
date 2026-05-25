@@ -2,11 +2,15 @@ import { createClient } from "@supabase/supabase-js"
 
 // This function creates a Supabase client for server-side operations
 export function createServerSupabaseClient() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://oizzdexnvcquljbeogwr.supabase.co"
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const supabaseAnonKey =
-    process.env.SUPABASE_ANON_KEY ||
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9penpkZXhudmNxdWxqYmVvZ3dyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2OTc2NTAsImV4cCI6MjA2MzI3MzY1MH0.h2XHMei-sWViDTcvKKnpV7-uyxeJUwTq7IV_h_xSkZs"
+    process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+  if (!supabaseUrl || !supabaseAnonKey) {
+    throw new Error(
+      "Missing Supabase env vars. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local."
+    )
+  }
 
   const client = createClient(supabaseUrl, supabaseAnonKey)
 
