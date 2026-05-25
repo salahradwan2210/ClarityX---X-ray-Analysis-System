@@ -105,7 +105,6 @@ The model detects **14 thoracic conditions** (NIH ChestX-ray14 labels) and local
 ---
 
 ## Architecture
-<img width="1049" height="909" alt="image" src="https://github.com/user-attachments/assets/476ac607-6c73-42b9-b8c6-6aadb1e3e115" />
 
 ```mermaid
 flowchart LR
