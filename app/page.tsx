@@ -124,42 +124,42 @@ export default function LandingPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex items-center justify-center"
             >
-              <Card className="w-full max-w-md border-primary/20 shadow-xl">
-                <CardContent className="p-6">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="rounded-full bg-primary/10 p-3 text-primary">
-                      <LucideZap className="h-6 w-6" />
+              <div className="relative h-[400px] w-full max-w-[500px] overflow-hidden rounded-lg border bg-background/50 shadow-xl">
+                <img
+                  src="/images/chest-xray-pneumonia.png"
+                  alt="Chest X-ray sample with AI analysis preview"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <div className="rounded-lg bg-background/95 p-3 backdrop-blur-sm">
+                    <div className="mb-2 flex items-center justify-between">
+                      <span className="font-medium">Sample analysis preview</span>
+                      <span className="text-xs text-muted-foreground">Upload a real X-ray in the app</span>
                     </div>
-                    <div>
-                      <p className="font-semibold">Sample analysis preview</p>
-                      <p className="text-xs text-muted-foreground">Upload a real X-ray in the app</p>
+                    <div className="space-y-2">
+                      <div className="space-y-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-medium text-red-600">Pneumonia</span>
+                          <span className="text-sm font-medium text-red-600">87%</span>
+                        </div>
+                        <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
+                          <div className="h-full w-[87%] rounded-full bg-red-600" />
+                        </div>
+                      </div>
+                      <div className="space-y-1">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm">Effusion</span>
+                          <span className="text-sm font-medium">42%</span>
+                        </div>
+                        <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
+                          <div className="h-full w-[42%] rounded-full bg-primary" />
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="space-y-3 rounded-lg border bg-muted/40 p-4">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="font-medium text-red-600">Pneumonia</span>
-                      <span className="font-medium text-red-600">87%</span>
-                    </div>
-                    <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
-                      <div className="h-full w-[87%] rounded-full bg-red-600" />
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span>Effusion</span>
-                      <span className="font-medium">42%</span>
-                    </div>
-                    <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
-                      <div className="h-full w-[42%] rounded-full bg-primary" />
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span>No Finding</span>
-                      <span className="font-medium">12%</span>
-                    </div>
-                    <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
-                      <div className="h-full w-[12%] rounded-full bg-muted-foreground/40" />
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>

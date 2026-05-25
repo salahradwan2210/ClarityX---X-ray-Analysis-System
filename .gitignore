@@ -51,9 +51,10 @@ model-training/wandb/
 python-backend/*.png
 python-backend/chest_xray_system
 
-# Large marketing / demo media (not used — site uses icons only)
+# Large marketing / demo media
 *.mp4
-public/images/
+public/images/*.mp4
+# Keep hero preview: public/images/chest-xray-pneumonia.png
 
 # Misc
 push.bat

@@ -45,6 +45,35 @@ The model detects **14 thoracic conditions** (NIH ChestX-ray14 labels) and local
 
 ---
 
+## Screenshots
+
+| Landing page | Login |
+| :---: | :---: |
+| ![Landing page](public/images/screenshots/01-landing.png) | ![Login](public/images/screenshots/02-login.png) |
+
+| Dashboard | New analysis |
+| :---: | :---: |
+| ![Dashboard](public/images/screenshots/03-dashboard.png) | ![Analysis upload](public/images/screenshots/04-analysis.png) |
+
+| Patients | Reports |
+| :---: | :---: |
+| ![Patients](public/images/screenshots/05-patients.png) | ![Reports](public/images/screenshots/06-reports.png) |
+
+| Profile |
+| :---: |
+| ![Profile](public/images/screenshots/07-profile.png) |
+
+> To regenerate screenshots locally (credentials via environment variables only):
+>
+> ```bash
+> set SCREENSHOT_EMAIL=your@email.com
+> set SCREENSHOT_PASSWORD=your-password
+> npm run dev
+> npm run screenshots
+> ```
+
+---
+
 ## Features
 
 - **Multi-label AI analysis** — ConvNeXt Large with attention, metadata (age, sex, view), and localization head
