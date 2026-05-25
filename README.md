@@ -47,21 +47,40 @@ The model detects **14 thoracic conditions** (NIH ChestX-ray14 labels) and local
 
 ## Screenshots
 
-| Landing page | Login |
-| :---: | :---: |
-| ![Landing page](public/images/screenshots/01-landing.png) | ![Login](public/images/screenshots/02-login.png) |
+<p align="center">
+  <img src="public/images/screenshots/01-landing.png" alt="Landing page" width="720" />
+  <br /><em>Landing page</em>
+</p>
 
-| Dashboard | New analysis |
-| :---: | :---: |
-| ![Dashboard](public/images/screenshots/03-dashboard.png) | ![Analysis upload](public/images/screenshots/04-analysis.png) |
+<p align="center">
+  <img src="public/images/screenshots/02-login.png" alt="Login" width="480" />
+  <br /><em>Login</em>
+</p>
 
-| Patients | Reports |
-| :---: | :---: |
-| ![Patients](public/images/screenshots/05-patients.png) | ![Reports](public/images/screenshots/06-reports.png) |
+<p align="center">
+  <img src="public/images/screenshots/03-dashboard.png" alt="Dashboard" width="720" />
+  <br /><em>Dashboard</em>
+</p>
 
-| Profile |
-| :---: |
-| ![Profile](public/images/screenshots/07-profile.png) |
+<p align="center">
+  <img src="public/images/screenshots/04-analysis.png" alt="New analysis" width="720" />
+  <br /><em>New analysis — upload X-ray</em>
+</p>
+
+<p align="center">
+  <img src="public/images/screenshots/05-patients.png" alt="Patients" width="720" />
+  <br /><em>Patients</em>
+</p>
+
+<p align="center">
+  <img src="public/images/screenshots/06-reports.png" alt="Reports" width="720" />
+  <br /><em>Reports</em>
+</p>
+
+<p align="center">
+  <img src="public/images/screenshots/07-profile.png" alt="Profile" width="720" />
+  <br /><em>Profile</em>
+</p>
 
 > To regenerate screenshots locally (credentials via environment variables only):
 >
